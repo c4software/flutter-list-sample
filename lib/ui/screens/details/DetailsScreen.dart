@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../../data/models/imageData.dart';
+import '../../widgets/ImageFromNetworkWithLoader.dart';
 
-// Widget that display detail of an item
-class MyDetail extends StatelessWidget {
-  const MyDetail(this.image, {Key? key}) : super(key: key);
+// Vue qui affiche les détails d'un élément
+class DetailsScreen extends StatelessWidget {
+  const DetailsScreen({Key? key, required this.image}) : super(key: key);
 
   final ImageData image;
 
@@ -17,19 +17,22 @@ class MyDetail extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      // Body with image and action button centered
+      // Image centré, avec un bouton en dessous.
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Image
-            Image.network(image.url, width: 300, height: 300),
+            ImageFromNetworkWithLoader(url: image.url, width: 300, height: 300),
             // Action button
             ElevatedButton(
               onPressed: () {
-                // Action
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(image.url),
+                  ),
+                );
               },
-              child: const Text('Commande'),
+              child: const Text('Action'),
             ),
           ],
         ),

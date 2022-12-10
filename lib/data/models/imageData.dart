@@ -1,3 +1,4 @@
+/// Modèle de données pour les images provenant de l'API.
 class ImageData {
   int id;
   String title;
