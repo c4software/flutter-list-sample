@@ -1,37 +1,25 @@
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:hello_world/data/models/imageData.dart';
 
-import '../../../data/services/api.dart';
-import '../details/DetailsScreen.dart';
+import '../../../../data/models/imageData.dart';
+import '../../../../data/services/api.dart';
+import '../../details/DetailsScreen.dart';
 
-class HomePageScreen extends StatelessWidget {
-  const HomePageScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ma liste d\'éléments'),
-      ),
-      body: const Center(
-        child: MyList(),
-      ),
-    );
-  }
-}
-
-class MyList extends StatefulWidget {
-  const MyList({super.key});
+// Screen permettant d'afficher une liste d'éléments
+// La liste est récupérée depuis une API
+// Lorsqu'on clique sur un élément, on est redirigé vers la vue de détails
+class ListTab extends StatefulWidget {
+  const ListTab({super.key});
 
   @override
-  createState() => _MyListState();
+  createState() => _ListTabState();
 }
 
 // State de la liste. Il contient la liste des éléments et gère l'affichage
 // d'un loader pendant le chargement des données.
-class _MyListState extends State {
+class _ListTabState extends State {
   List<ImageData> _data = <ImageData>[];
   bool _loading = true;
 

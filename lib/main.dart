@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/style/theme.dart';
-import 'package:hello_world/ui/screens/home/HomePageScreen.dart';
+import 'package:hello_world/ui/screens/home/HomePageTabs.dart';
 
 void main() {
   runApp(const MyApp());
