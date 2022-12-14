@@ -35,7 +35,7 @@ class _MyListState extends State {
   List<ImageData> _data = <ImageData>[];
   bool _loading = true;
 
-  _getUsers() async {
+  _getData() async {
     var response = await API.getPhotos();
     if (response.statusCode == 200) {
       Iterable list = json.decode(response.body);
@@ -51,7 +51,7 @@ class _MyListState extends State {
   @override
   initState() {
     super.initState();
-    _getUsers();
+    _getData();
   }
 
   @override
