@@ -18,12 +18,18 @@ class HomePageScreen extends StatefulWidget {
 
 // State de la page. Il contient les tabs et gère l'affichage
 class _HomePageScreenState extends State {
+  // Index de l'onglet sélectionné au démarrage de la vue nous initialisons à 0
+  // pour afficher le premier onglet
   int _currentIndex = 0;
+
+  // Liste des tabs présent dans la page
   final List<Widget> _children = <Widget>[
     const ListTab(),
     const AboutTab(),
   ];
 
+
+  // Liste des titres affiché en haut de la page
   final List<String> _titles = <String>[
     'Liste',
     'À propos',
@@ -35,7 +41,10 @@ class _HomePageScreenState extends State {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
       ),
+      // Le contenu de la page est affiché est fonction de l'index de la tab sélectionnée
       body: _children[_currentIndex],
+
+      // BottomNavigationBar permet d'afficher les tabs en bas de la page
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
@@ -53,6 +62,7 @@ class _HomePageScreenState extends State {
     );
   }
 
+  // Méthode appelée lorsqu'on clique sur une tab
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
