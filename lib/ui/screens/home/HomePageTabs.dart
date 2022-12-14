@@ -24,11 +24,16 @@ class _HomePageScreenState extends State {
     const AboutTab(),
   ];
 
+  final List<String> _titles = <String>[
+    'Liste',
+    'À propos',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ma liste d\'éléments'),
+        title: Text(_titles[_currentIndex]),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
