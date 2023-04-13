@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'tabs/AboutTab.dart';
 import 'tabs/ListTab.dart';
+import 'tabs/LoginTab.dart';
 
 // Screen permettant d'afficher deux tabs : une liste d'éléments et une vue À propos
 class HomePageScreen extends StatefulWidget {
@@ -14,7 +15,6 @@ class HomePageScreen extends StatefulWidget {
   @override
   createState() => _HomePageScreenState();
 }
-
 
 // State de la page. Il contient les tabs et gère l'affichage
 class _HomePageScreenState extends State {
@@ -26,13 +26,14 @@ class _HomePageScreenState extends State {
   final List<Widget> _children = <Widget>[
     const ListTab(),
     const AboutTab(),
+    const LoginTab(),
   ];
-
 
   // Liste des titres affiché en haut de la page
   final List<String> _titles = <String>[
     'Liste',
     'À propos',
+    'Mon compte',
   ];
 
   @override
@@ -56,6 +57,10 @@ class _HomePageScreenState extends State {
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
             label: 'À Propos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Mon Compte',
           ),
         ],
       ),
