@@ -16,8 +16,8 @@ class _LoginTabState extends State {
   LoginData? _data;
   bool _loading = false;
 
-  String _username = 'kminchelle';
-  String _password = '0lelplR';
+  String _username = '';
+  String _password = '';
 
   // Fonction appelée lors de la connexion
   // Elle appelle l'API pour se connecter
@@ -110,6 +110,8 @@ class FormAuthWidget extends StatelessWidget {
   final Function onPasswordChange;
   final Function onLoginChange;
 
+  // Valeurs par défaut des champs
+  // Ici, on utilise des variables de démonstration
   final _initiialLogin = "kminchelle";
   final _initialPassword = "0lelplR";
 
