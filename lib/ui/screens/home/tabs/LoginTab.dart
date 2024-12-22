@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:hello_world/data/models/loginData.dart';
@@ -126,7 +125,7 @@ class FormAuthWidget extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Authentification',
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 20),
               TextFormField(
@@ -187,12 +186,12 @@ class AuthUserInformationWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             'Bienvenue ${loginData.firstName} ${loginData.lastName}',
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: 20),
           Text(
             'Vous êtes connecté',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 20),
           ElevatedButton(

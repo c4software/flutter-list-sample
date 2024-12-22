@@ -1,6 +1,4 @@
-// Screen permettant d'afficher deux tabs : une liste d'éléments et une vue À propos
-
-// Compare this snippet from lib/ui/screens/home/HomePageTabs.dart:
+// Écran permettant d'afficher trois onglets : une liste d'éléments, une vue À propos et une vue Mon compte
 
 import 'package:flutter/material.dart';
 
@@ -8,7 +6,7 @@ import 'tabs/AboutTab.dart';
 import 'tabs/ListTab.dart';
 import 'tabs/LoginTab.dart';
 
-// Screen permettant d'afficher deux tabs : une liste d'éléments et une vue À propos
+// Écran permettant d'afficher trois onglets : une liste d'éléments, une vue À propos et une vue Mon compte
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
 
@@ -16,20 +14,19 @@ class HomePageScreen extends StatefulWidget {
   createState() => _HomePageScreenState();
 }
 
-// State de la page. Il contient les tabs et gère l'affichage
-class _HomePageScreenState extends State {
-  // Index de l'onglet sélectionné au démarrage de la vue nous initialisons à 0
-  // pour afficher le premier onglet
+// State de la page. Il contient les onglets et gère l'affichage
+class _HomePageScreenState extends State<HomePageScreen> {
+  // Index de l'onglet sélectionné au démarrage de la vue, initialisé à 0
   int _currentIndex = 0;
 
-  // Liste des tabs présent dans la page
+  // Liste des onglets présents dans la page
   final List<Widget> _children = <Widget>[
     const ListTab(),
     const AboutTab(),
     const LoginTab(),
   ];
 
-  // Liste des titres affiché en haut de la page
+  // Liste des titres affichés en haut de la page
   final List<String> _titles = <String>[
     'Liste',
     'À propos',
@@ -42,10 +39,10 @@ class _HomePageScreenState extends State {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
       ),
-      // Le contenu de la page est affiché est fonction de l'index de la tab sélectionnée
+      // Le contenu de la page est affiché en fonction de l'index de l'onglet sélectionné
       body: _children[_currentIndex],
 
-      // BottomNavigationBar permet d'afficher les tabs en bas de la page
+      // BottomNavigationBar permet d'afficher les onglets en bas de la page
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
@@ -67,7 +64,7 @@ class _HomePageScreenState extends State {
     );
   }
 
-  // Méthode appelée lorsqu'on clique sur une tab
+  // Méthode appelée lorsqu'on clique sur un onglet
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
