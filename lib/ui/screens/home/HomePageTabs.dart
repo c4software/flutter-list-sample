@@ -39,6 +39,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       appBar: AppBar(
         title: Text(_titles[_currentIndex]),
       ),
+
       // Le contenu de la page est affiché en fonction de l'index de l'onglet sélectionné
       body: _children[_currentIndex],
 
